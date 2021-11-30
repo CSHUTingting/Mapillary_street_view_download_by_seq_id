@@ -9,7 +9,7 @@ import sys
 import time
 import pandas as pd
 
-save_path = 'D:\python\Filip_images'
+save_path = 'D:\python'  #saving path
 
 def Get_streetview_by_seq (seq_id):
     if not os.path.exists(save_path + '/' + seq_id):  # create filefolder of images
@@ -49,56 +49,7 @@ def Get_streetview_by_seq (seq_id):
             f.close
 
 
-'''
-    for i in range(len(data["data"]))[0:2]:
-        image_id = data["data"][i]["id"]
-        url = 'https://graph.mapillary.com/{}?fields=thumb_2048_url,geometry'.format(image_id)  # using image id request image url
-        r = requests.get(url, headers=header)
-        data1 = r.json()
-        print(data1)
-        if 'thumb_2048_url' in data1:
-            image_url = data1['thumb_2048_url']
-            print(image_url)
-            print(data1["geometry"])
-'''
 
 
-Get_streetview_by_seq (seq_id="P69cCTldQwekNtfO1gRxAy")
+Get_streetview_by_seq (seq_id="P69cCTldQwekNtfO1gRxAy") #sequence id
 
-'''
-            req = urllib.request.Request(url=image_url, headers=header)  # request download image
-            response = urllib.request.urlopen(req)
-            raw_img = response.read()
-            print("request successful")
-
-            file_out = save_path + location + '/' + location + ".jpg"  # save image
-            f = open(file_out, "wb")
-            f.write(raw_img)
-            f.close
-'''
-
-'''
-def Getstreet(image_id, location):
-    header = {'Authorization': 'OAuth {}'.format(access_token)}
-    url = 'https://graph.mapillary.com/{}?fields=thumb_2048_url'.format(image_id)   #using image id request image url
-    print(url)
-    r = requests.get(url, headers=header)
-    data = r.json()
-    print(data)
-    if 'thumb_2048_url' in data:
-        image_url = data['thumb_2048_url']
-        print(image_url)
-
-        if not os.path.exists(save_path + location):  # create filefolder of images
-             os.makedirs(save_path + location)
-
-        req = urllib.request.Request(url=image_url, headers=header)                     #request download image
-        response = urllib.request.urlopen(req)
-        raw_img = response.read()
-        print("request successful")
-
-        file_out = save_path + location  + '/' + location+ ".jpg"  # save image
-        f = open(file_out, "wb")
-        f.write(raw_img)
-        f.close
-'''
